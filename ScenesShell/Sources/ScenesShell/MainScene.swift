@@ -22,9 +22,19 @@ import Scenes
    A Scene is comprised of one or more Layers.
    Layers are generally added in the constructor.
  */
-class MainScene : Scene {
 
+
+
+class MainScene : Scene {
+    let backgroundLayer : Layer//= MainBackgroundLayer()    // subclassed Layer
+    let interactionLayer : Layer//= MainInteractionLayer()    // subclassed Layer
+    
     init() {
+        backgroundLayer = BackgroundLayer()
+        interactionLayer = InteractionLayer()
         super.init(name:"Main")
+        insert(layer:backgroundLayer, at:.front)
+        //insert(layer:foregroundLayer, at:.front)
+        insert(layer:interactionLayer, at:.front)
     }
 }
